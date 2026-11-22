@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="./">
+<title>PT MAWAR ANDRIYANI INTERNASIONAL</title>
+
+<link rel="preload" as="image" href="./halaman-depan.jpg">
+<link rel="preload" as="image" href="./mawar-andriyani.jpg">
+<link rel="preload" as="image" href="./background-fashion.jpg">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#eee}
+button{cursor:pointer;border:none}
+
+.welcome-page,.company-dashboard,.owner-profile{
+background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),url("./background-fashion.jpg");
+background-size:100% 100%;
+background-position:center;
+background-repeat:no-repeat
+}
+
+.welcome-page{
+min-height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+padding:30px 15px;color:white
+}
+.welcome-page h1{font-size:32px;margin-bottom:12px;letter-spacing:2px}
+.welcome-page>p{font-size:16px;margin-bottom:20px;line-height:1.7;max-width:850px}
+.welcome-heading{font-size:30px;font-weight:bold;line-height:1.5;margin-bottom:15px;max-width:900px;color:white}
+.welcome-tagline{font-size:19px;font-weight:bold;line-height:1.7;max-width:850px;margin-bottom:25px;color:#e9c477}
+
+.welcome-photo{
+width:100%;max-width:900px;height:clamp(220px,45vw,480px);
+object-fit:cover;object-position:center;display:block;
+border:3px solid #c49a62;border-radius:18px;margin-bottom:25px;
+box-shadow:0 0 20px rgba(196,154,98,.35)
+}
+
+.welcome-name{font-size:25px;font-weight:bold;margin-bottom:12px;color:#e9c477;letter-spacing:1px}
+
+.welcome-page .welcome-description{
+position:relative;isolation:isolate;overflow:hidden;width:100%;
+max-width:850px;padding:30px 25px;margin:15px auto 25px;
+background:
+radial-gradient(ellipse at top left,rgba(196,154,98,.25),transparent 55%),
+radial-gradient(ellipse at bottom right,rgba(196,154,98,.25),transparent 55%),
+linear-gradient(135deg,#000,#171109,#000);
+border:2px solid #c49a62;border-radius:18px;
+box-shadow:0 0 15px rgba(196,154,98,.35),inset 0 0 20px rgba(196,154,98,.15);
+color:#fff;text-align:left;line-height:1.9;font-size:16px
+}
+.welcome-page .welcome-description::before{
+content:"";position:absolute;inset:0;z-index:-1;
+background:radial-gradient(circle at 10% 20%,rgba(212,175,55,.2),transparent 30%),
+radial-gradient(circle at 90% 80%,rgba(212,175,55,.2),transparent 30%);
+pointer-events:none
+}
+.welcome-page .welcome-description p{
+color:#fff;font-size:16px;line-height:1.9;margin:0 0 22px;
+max-width:none;position:relative;text-align:left
+}
+.welcome-page .welcome-description p:last-child{margin-bottom:0}
+.welcome-signature{margin-top:25px;line-height:1.8;position:relative;text-align:left;color:white}
+.welcome-signature strong{display:block;color:#e9c477;font-size:18px}
+.welcome-signature em{display:block;font-size:16px}
+.welcome-motto{
+margin-top:25px;padding-top:18px;border-top:1px solid #c49a62;
+text-align:center;font-style:italic;color:#e9c477;font-size:17px;line-height:1.8
+}
+.primary-btn{padding:15px 40px;border-radius:30px;background:#c49a62;color:white;font-size:16px;font-weight:bold}
+
+.company-dashboard,.owner-profile{
+display:none;min-height:100vh;padding:55px 7%;color:white;
+background:linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.82)),url("./background-fashion.jpg");
+background-size:cover;background-position:center;background-repeat:no-repeat
+}
+
+.dashboard-header{text-align:center;margin-bottom:35px}
+.dashboard-header h1{font-size:30px;letter-spacing:2px;margin-bottom:12px}
+.dashboard-header p{line-height:1.7}
+.dashboard-content{max-width:1100px;margin:auto}
+
+.dashboard-card{
+background:#000;color:#fff;padding:30px;border-radius:12px;
+margin-bottom:22px;line-height:1.9;border:1px solid #c49a62;
+border-left:5px solid #c49a62;box-shadow:0 5px 20px rgba(0,0,0,.3)
+}
+.dashboard-card h2{
+color:#c49a62;background:#000;margin-bottom:15px;
+font-size:22px;border-bottom:1px solid #c49a62;padding:12px
+}
+.dashboard-card p,.dashboard-card li{color:#fff}
+.dashboard-card p{text-align:justify;margin-bottom:15px;line-height:1.9}
+.dashboard-card p:last-child{margin-bottom:0}
+.dashboard-card ul{padding-left:22px}
+
+.owner-profile-actions{
+display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px
+}
+.owner-profile-actions button{
+padding:14px 25px;border-radius:25px;
+background:linear-gradient(90deg,#b98532,#e9c477);
+color:#211609;font-weight:bold
+}
+#ownerProfile .owner-profile-actions{flex-direction:column;align-items:center}
+#ownerProfile .owner-profile-actions button{width:100%;max-width:350px}
+
+.store-back-section{
+background:#080808;padding:35px 15px;text-align:center;border-top:1px solid #59452d
+}
+.store-back-button{
+padding:14px 35px;border-radius:30px;
+background:linear-gradient(90deg,#b98532,#e9c477);
+color:#211609;font-weight:bold;font-size:15px
+}
+.store-back-button:hover,.owner-profile-actions button:hover{filter:brightness(1.15)}
+
+.business-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.business-card{
+background:#000;color:#fff;border:1px solid #c49a62;
+border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.3)
+}
+.business-card img{width:100%;height:auto;display:block;object-fit:contain;background:#000}
+.business-info{padding:22px;line-height:1.7;background:#000;color:#fff}
+.business-info h3{color:#c49a62;font-size:20px;margin-bottom:10px}
+.business-info p{font-size:14px;margin-bottom:9px;color:#fff}
+.business-location{color:#e9c477!important;font-weight:bold}
+
+.owner-profile-inner{max-width:1000px;margin:auto;text-align:center}
+.owner-profile h1{margin-bottom:12px;letter-spacing:2px;color:#e8c477}
+.owner-subtitle{margin-bottom:35px;line-height:1.7;color:#eee}
+.owner-profile-card{
+position:relative;display:flex;align-items:center;justify-content:center;
+gap:35px;flex-wrap:wrap;padding:35px;border-radius:25px;
+background:linear-gradient(145deg,#080808,#17120b,#050505);
+color:white;text-align:left;border:2px solid #c49a62;
+box-shadow:0 0 15px rgba(212,164,75,.3),inset 0 0 20px rgba(212,164,75,.12);
+overflow:hidden
+}
+.owner-profile-photo{
+width:260px;max-width:100%;height:350px;object-fit:cover;
+object-position:center top;border-radius:12px;border:2px solid #c49a62;
+box-shadow:0 0 15px rgba(212,164,75,.35)
+}
+.owner-profile-info{flex:1;min-width:260px;line-height:1.9;position:relative;z-index:1}
+.owner-profile-info h2{
+display:block;text-align:center;padding:12px;margin-bottom:25px;
+color:#241609;background:linear-gradient(90deg,#b98532,#ffe29a,#c18b37);
+border-radius:30px;font-size:25px
+}
+.owner-profile-info p{margin-bottom:8px;font-size:17px}
+.owner-profile-info p strong{color:#e9c477}
+.owner-profile-info .owner-person-name{
+background:none;color:white;padding:0;margin-bottom:20px;
+border-radius:0;font-size:29px;text-align:center;border:none
+}
+.owner-quote{
+text-align:center;line-height:1.9;margin-top:25px;padding-top:20px;
+border-top:2px solid #c49a62;font-style:italic;color:#f1dfbd;font-size:17px
+}
+.owner-name{display:block;margin-top:15px;text-align:center;font-weight:bold;color:#e9c477}
+
+.main-website{display:none}
+header{
+background:#080808;color:white;padding:18px 7%;display:flex;
+justify-content:space-between;align-items:center;flex-wrap:wrap;
+gap:15px;border-bottom:1px solid #c49a62
+}
+.logo{font-size:25px;font-weight:bold;letter-spacing:2px;color:#d5ad79}
+nav{display:flex;align-items:center;flex-wrap:wrap;gap:20px}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#d5ad79}
+.cart-button{background:#c49a62;color:#080808;padding:10px 16px;border-radius:20px;font-weight:bold}
+
+.hero{
+min-height:420px;display:flex;align-items:center;justify-content:center;
+text-align:center;padding:30px;color:white;
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.5)),url("./background-fashion.jpg");
+background-size:100% 100%;background-position:center;background-repeat:no-repeat
+}
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero p{font-size:17px;line-height:1.7}
+
+.products-section{padding:55px 7%;background:#000;color:#fff}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:30px;color:#c49a62;margin-bottom:10px}
+.section-title p{color:#eee}
+.search-box{
+display:block;width:100%;max-width:500px;margin:0 auto 20px;
+padding:14px;border:1px solid #c49a62;border-radius:25px;
+font-size:15px;background:#151515;color:#fff;outline:none
+}
+.search-box::placeholder{color:#aaa}
+.search-box:focus{border-color:#f1d49b;box-shadow:0 0 8px rgba(196,154,98,.3)}
+.categories{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.category-btn{
+padding:10px 18px;border-radius:20px;background:#171717;
+color:#e9c477;border:1px solid #c49a62;font-weight:bold
+}
+.category-btn.active,.category-btn:hover{background:#c49a62;color:#080808}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.product-card{
+background:#101010;color:#fff;border:1px solid #c49a62;
+border-radius:13px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.4);transition:.2s
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(196,154,98,.15)}
+.product-card img{
+width:100%;height:240px;object-fit:contain;object-position:center;
+display:block;background:#080808;padding:5px
+}
+.image-error{
+width:100%;height:240px;display:flex;justify-content:center;
+align-items:center;text-align:center;padding:10px;
+background:#080808;color:#e9c477;font-size:13px
+}
+.product-info{padding:17px;background:#101010;color:#fff}
+.product-info h3{font-size:16px;margin-bottom:10px;color:#e9c477}
+.product-category{color:#aaa;font-size:13px;margin-bottom:8px}
+.product-price{color:#e9c477;font-size:18px;font-weight:bold;margin-bottom:12px}
+.product-detail{font-size:13px;line-height:1.6;margin-bottom:12px;color:#ddd}
+.product-button{width:100%;padding:12px;background:#c49a62;color:#080808;border-radius:7px;font-weight:bold}
+.product-button:hover{background:#e9c477}
+
+.modal{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);
+z-index:2000;justify-content:center;align-items:center;padding:15px
+}
+.modal-content{
+background:#101010;color:#fff;border:1px solid #c49a62;
+width:100%;max-width:420px;max-height:85vh;overflow-y:auto;
+padding:25px;border-radius:15px;text-align:center
+}
+.modal-content h2{margin-bottom:12px;color:#e9c477}
+#modalProductName{margin-bottom:15px;color:#eee}
+.size-group{text-align:left;margin:22px 0}
+.size-group h3{color:#e9c477;margin-bottom:10px}
+.size-options{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}
+.size-options button{
+padding:12px 3px;border:1px solid #c49a62;border-radius:8px;
+background:#171717;color:#e9c477;font-weight:bold
+}
+.size-options button.active{background:#c49a62;color:#080808}
+.modal-content input{
+width:100%;padding:13px;margin:15px 0;border:1px solid #c49a62;
+border-radius:7px;background:#171717;color:#fff
+}
+.modal-actions{display:flex;gap:10px;margin-top:10px}
+.modal-actions button{flex:1;padding:12px;border-radius:7px;color:white;font-weight:bold}
+.add-modal-btn{background:#c49a62;color:#080808!important}
+.close-modal-btn{background:#555}
+.color-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0;text-align:left}
+.color-options button{
+padding:12px;border:1px solid #c49a62;border-radius:8px;
+background:#171717;color:#e9c477;font-weight:bold
+}
+.color-options button.active{background:#c49a62;color:#080808}
+.color-options button:disabled{background:#292929;color:#e28c8c;cursor:not-allowed}
+.color-options small{display:block;margin-top:5px;font-size:11px}
+
+.cart-panel{
+position:fixed;top:0;right:-450px;width:100%;max-width:400px;
+height:100vh;height:100dvh;background:#101010;color:#fff;
+border-left:1px solid #c49a62;z-index:1100;padding:25px;
+box-shadow:-5px 0 20px rgba(0,0,0,.4);transition:.3s;overflow-y:auto
+}
+.cart-panel.open{right:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.cart-header h2{color:#e9c477}
+.close-cart{background:#292929;color:#fff;padding:9px 13px;border-radius:7px}
+.cart-item{border-bottom:1px solid #59452d;padding:15px 0}
+.cart-item h4{margin-bottom:7px;color:#e9c477}
+.cart-item p{font-size:14px;margin-bottom:8px;color:#eee}
+.quantity-control{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.quantity-control button{padding:7px 12px;background:#c49a62;color:#080808;border-radius:5px}
+.remove-btn{background:#b53c3c!important;color:white!important}
+.cart-total{margin-top:25px;font-size:19px;font-weight:bold;color:#e9c477}
+.checkout-btn{width:100%;padding:14px;background:#25d366;color:white;border-radius:8px;font-weight:bold;margin-top:20px}
+
+.confirm-box{
+position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.75);
+display:none;justify-content:center;align-items:center;padding:20px
+}
+.confirm-content{
+background:#101010;color:#fff;border:1px solid #c49a62;
+width:100%;max-width:350px;padding:25px;border-radius:15px;text-align:center
+}
+.confirm-content h3{color:#e9c477;margin-bottom:12px}
+.confirm-content p{color:#ddd;line-height:1.6;margin-bottom:20px}
+.confirm-actions{display:flex;gap:10px}
+.confirm-actions button{flex:1;padding:12px;border-radius:7px;font-weight:bold;color:white}
+.cancel-delete{background:#777}
+.confirm-delete{background:#b53c3c}
+
+.toast{
+position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
+background:#c49a62;color:#080808;padding:14px 22px;
+border-radius:10px;z-index:4000;display:none;
+max-width:90%;text-align:center;font-weight:bold
+}
+
+.about-section{
+background:#080808;color:white;padding:50px 7%;text-align:center;border-top:1px solid #c49a62
+}
+.about-section h2{color:#d5ad79;margin-bottom:15px}
+.about-section p{max-width:750px;margin:auto;line-height:1.8}
+footer{
+background:#000;color:white;text-align:center;padding:20px;
+font-size:13px;border-top:1px solid #59452d
+}
+
+@media(max-width:900px){
+.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+header{justify-content:center;text-align:center}
+nav{justify-content:center}
+.hero h1{font-size:30px}
+.hero{min-height:350px}
+.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-card img{height:200px}
+.product-info{padding:12px}
+.product-info h3{font-size:14px}
+.product-price{font-size:15px}
+.products-section{padding:40px 4%}
+.dashboard-header h1{font-size:24px}
+.welcome-page h1{font-size:25px}
+.welcome-page>p{font-size:14px}
+.welcome-heading{font-size:22px}
+.welcome-tagline{font-size:15px}
+.welcome-name{font-size:19px}
+.welcome-photo{height:220px;border-radius:12px}
+.welcome-page .welcome-description{padding:20px 16px;font-size:14px;line-height:1.9;margin:12px auto 22px}
+.welcome-page .welcome-description p{font-size:14px;line-height:1.9}
+.welcome-motto{font-size:14px}
+.company-dashboard,.owner-profile{padding:40px 5%}
+.owner-profile-card{padding:20px;gap:20px;text-align:center}
+.owner-profile-photo{width:220px;height:280px}
+.owner-profile-info{min-width:100%}
+.owner-profile-info h2{font-size:21px}
+.owner-profile-info p{font-size:15px}
+.owner-profile-info .owner-person-name{font-size:24px}
+.owner-quote{font-size:15px}
+.dashboard-card{padding:22px}
+.dashboard-card h2{font-size:20px}
+.size-options{gap:5px}
+.size-options button{padding:12px 2px}
+.business-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN SELAMAT DATANG -->
+<section class="welcome-page" id="welcomePage">
+
+<h1>SELAMAT DATANG</h1>
+
+<h2 class="welcome-heading">
+WEBSITE RESMI PT MAWAR ANDRIYANI INTERNASIONAL
+</h2>
+
+<p class="welcome-tagline">
+Membangun Kepercayaan, Menghadirkan Keunggulan, Menggapai Masa Depan Internasional.
+</p>
+
+<img src="./halaman-depan.jpg" alt="Sambutan PT Mawar Andriyani Internasional" class="welcome-photo">
+
+<div class="welcome-name">PT MAWAR ANDRIYANI INTERNASIONAL</div>
+
+<div class="welcome-description">
+
+<p>Dengan penuh rasa hormat, saya menyambut Anda di website resmi PT Mawar Andriyani Internasional.</p>
+
+<p>Sebagai pimpinan perusahaan, saya percaya bahwa sebuah kesuksesan dibangun melalui integritas, profesionalisme, kepercayaan, dan komitmen untuk terus berkembang.</p>
+
+<p>PT Mawar Andriyani Internasional hadir dengan semangat untuk membangun hubungan yang kuat, membuka peluang kerja sama, serta menciptakan nilai positif bagi seluruh mitra dan masyarakat.</p>
+
+<p>Kami percaya bahwa setiap langkah besar dimulai dari visi yang jelas, keberanian untuk berinovasi, serta kemauan untuk terus memberikan yang terbaik.</p>
+
+<p>Merupakan suatu kehormatan bagi kami untuk menjadi bagian dari perjalanan menuju masa depan yang lebih baik.</p>
+
+<p>Terima kasih atas kunjungan dan kepercayaan Anda.</p>
+
+<div class="welcome-signature">
+<strong>Salam hormat,</strong>
+<br>
+<strong>MAWAR ANDRIYANI</strong>
+<em>Founder & President Director</em>
+PT Mawar Andriyani Internasional
+</div>
+
+<div class="welcome-motto">
+Building Trust, Creating Excellence, Connecting the World.
+</div>
+
+</div>
+
+<button class="primary-btn" onclick="enterWebsite()">MASUK</button>
+</section>
+
+<!-- PROFIL PEMILIK -->
+<section class="owner-profile" id="ownerProfile">
+<div class="owner-profile-inner">
+
+<h1>PROFIL Founder & President Director</h1>
+<p class="owner-subtitle">PT MAWAR ANDRIYANI INTERNASIONAL</p>
+
+<div class="owner-profile-card">
+
+<img src="./mawar-andriyani.jpg" alt="Mawar Andriyani" class="owner-profile-photo">
+
+<div class="owner-profile-info">
+<h2>Profil Founder & President Director</h2>
+<h2 class="owner-person-name">Ibu Mawar Andriyani</h2>
+
+<p><strong>Lahir di :</strong> Jakarta</p>
+<p><strong>Tanggal :</strong> 01 - 05 - 1990</p>
+<p><strong>Status :</strong> Single</p>
+
+<div class="owner-quote">
+" Dengan semangat dan dedikasi tinggi,
+saya berkomitmen membawa
+PT Mawar Andriyani Internasional
+menjadi perusahaan terdepan
+di berbagai bidang usaha. "
+<span class="owner-name">- Mawar Andriyani -</span>
+</div>
+</div>
+</div>
+
+<div class="owner-profile-actions">
+<button onclick="enterOwnerProfile()">LANJUT KE PROFIL PERUSAHAAN</button>
+<button onclick="confirmBack('welcomePage')">KEMBALI</button>
+</div>
+
+</div>
+</section>
+
+<!-- PROFIL PERUSAHAAN -->
+<section class="company-dashboard" id="companyDashboard">
+
+<div class="dashboard-header">
+<h1>PT MAWAR ANDRIYANI INTERNASIONAL</h1>
+<p>Selamat datang di profil perusahaan kami</p>
+</div>
+
+<div class="dashboard-content">
+
+<div class="dashboard-card">
+<h2>Profil Perusahaan</h2>
+<p>PT Mawar Andriyani Internasional bergerak dalam berbagai sektor strategis, meliputi properti dan real estate, konstruksi, kuliner, layanan keagenan perbankan, serta fashion. Perusahaan kami terus mengembangkan potensi bisnis melalui pengelolaan yang terarah, pelayanan berkualitas, dan standar kerja yang terpercaya.</p>
+<p>Kami percaya bahwa keberhasilan bukan hanya tentang pertumbuhan bisnis, melainkan juga tentang membangun hubungan jangka panjang, menciptakan nilai tambah, serta memberikan manfaat yang berkelanjutan.</p>
+</div>
+
+<div class="dashboard-card">
+<h2>Unit Usaha Kami</h2>
+<p>PT Mawar Andriyani Internasional memiliki beberapa unit usaha yang bergerak di berbagai bidang.</p>
+</div>
+
+<div class="business-grid">
+
+<div class="business-card">
+<img src="./bank.jpg" alt="Zhetin BRI Link">
+<div class="business-info">
+<h3>Zhetin BRI Link</h3>
+<p>Menyediakan layanan transaksi perbankan untuk membantu masyarakat melakukan berbagai kebutuhan keuangan dengan mudah dan praktis.</p>
+<p class="business-location">Lokasi: Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./cafe.jpg" alt="Mawar Coffee">
+<div class="business-info">
+<h3>Mawar Coffee</h3>
+<p>Tempat menikmati kopi dan berbagai pilihan minuman dengan suasana nyaman untuk bersantai, berkumpul, dan menikmati waktu bersama.</p>
+<p class="business-location">Lokasi: Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./kalasan.jpg" alt="Grand Hertindo Kalasan">
+<div class="business-info">
+<h3>Perumahan Grand Hertindo Kalasan</h3>
+<p>Unit usaha properti yang bergerak dalam bidang pengembangan dan penyediaan hunian bagi masyarakat dengan lingkungan yang nyaman.</p>
+<p class="business-location">Lokasi: Kalasan, Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./seturan.jpg" alt="Grand Hertindo Seturan">
+<div class="business-info">
+<h3>Perumahan Grand Hertindo Seturan</h3>
+<p>Unit usaha properti yang menyediakan pilihan hunian di kawasan Seturan untuk mendukung kebutuhan tempat tinggal masyarakat.</p>
+<p class="business-location">Lokasi: Seturan, Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./umroh.jpg" alt="Umroh dan Haji">
+<div class="business-info">
+<h3>Umroh dan Haji</h3>
+<p>PT Mawar Andriyani Internasional bekerja sama dengan PT Farhan Surya Indah untuk layanan perjalanan ibadah Umroh dan Haji yang membantu calon jamaah dalam mempersiapkan perjalanan ibadah dengan pelayanan dan pendampingan.</p>
+<p class="business-location">Lokasi: Cipinang Jaya, Jakarta Timur dan Jalan Raya LPMP, Kalasan, Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./konstruksi.jpg" alt="Jasa Konstruksi">
+<div class="business-info">
+<h3>Jasa Konstruksi</h3>
+<p>PT Mawar Andriyani Internasional juga memiliki usaha yang bergerak dalam bidang jasa konstruksi dan pembangunan untuk mendukung kebutuhan pembangunan berbagai jenis bangunan.</p>
+<p class="business-location">Lokasi: Bogor, Jalan Raya Tajur dan Kalasan, Jalan Raya LPMP, Sleman, Yogyakarta</p>
+</div>
+</div>
+
+<div class="business-card">
+<img src="./zhetin.jpg" alt="Zhetin Fashion">
+<div class="business-info">
+<h3>Zhetin Fashion</h3>
+<p>Dan yang terakhir bergerak di bidang fashion yang menghadirkan berbagai koleksi pakaian dengan desain hasil karya sendiri, mengutamakan kualitas, kenyamanan, dan tampilan elegan.</p>
+<p class="business-location">Lokasi: Sleman, Yogyakarta</p>
+</div>
+</div>
+
+</div>
+
+<div class="dashboard-card" style="margin-top:22px">
+<h2>Visi Perusahaan</h2>
+<p>Menjadi perusahaan multisektor terkemuka di Indonesia yang inovatif, profesional, dan terpercaya.</p>
+</div>
+
+<div class="dashboard-card">
+<h2>Misi Perusahaan</h2>
+<ul>
+<li>Memberikan pelayanan terbaik kepada pelanggan.</li>
+<li>Membangun nilai tambah bagi pelanggan dan masyarakat.</li>
+<li>Terus berinovasi untuk masa depan yang lebih baik.</li>
+</ul>
+</div>
+
+<div class="dashboard-card">
+<h2>Komitmen Kami</h2>
+<p>Kami berkomitmen untuk menjadi mitra bisnis yang dapat diandalkan, menghadirkan pelayanan terbaik, mengembangkan peluang usaha, serta menciptakan pertumbuhan yang memberikan manfaat bagi seluruh pihak.</p>
+<p>Dengan semangat kepemimpinan, dedikasi, dan inovasi, PT Mawar Andriyani Internasional akan terus melangkah maju menghadapi tantangan dan peluang di masa depan.</p>
+</div>
+
+<div class="owner-profile-actions">
+<button onclick="confirmBack('ownerProfile')">KEMBALI</button>
+<button onclick="enterMainWebsite()">LANJUT KE Zhetin</button>
+</div>
+
+</div>
+</section>
+
+<!-- WEBSITE ZHETIN -->
+<div class="main-website" id="mainWebsite">
+
+<header>
+<div class="logo">Zhetin</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#produk">Produk</a>
+<a href="#tentang">Tentang Kami</a>
+<button class="cart-button" onclick="toggleCart()">Keranjang (<span id="cartCount">0</span>)</button>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<h1>Zhetin</h1>
+<p>Temukan koleksi fashion pilihan dengan desain elegan,<br>nyaman, dan berkualitas.</p>
+</div>
+</section>
+
+<section class="products-section" id="produk">
+
+<div class="section-title">
+<h2>Koleksi Produk Kami</h2>
+<p>Temukan produk fashion pilihan Anda</p>
+</div>
+
+<input type="text" id="searchInput" class="search-box"
+placeholder="Cari nama produk..." oninput="renderProducts()">
+
+<div class="categories">
+<button class="category-btn active" onclick="filterCategory('Semua',this)">Semua</button>
+<button class="category-btn" onclick="filterCategory('Wanita',this)">Wanita</button>
+<button class="category-btn" onclick="filterCategory('Pria',this)">Pria</button>
+<button class="category-btn" onclick="filterCategory('Mukena',this)">Mukena</button>
+</div>
+
+<div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="about-section" id="tentang">
+<h2>TENTANG Zhetin</h2>
+<p>Zhetin merupakan salah satu brand dari PT Mawar Andriyani Internasional yang menghadirkan pilihan produk fashion dengan desain hasil karya perusahaan sendiri. Kami mengutamakan kualitas, kenyamanan, dan kepuasan pelanggan dalam setiap produk.</p>
+</section>
+
+<section class="store-back-section">
+<button class="store-back-button" onclick="confirmBack('companyDashboard')">KEMBALI KE PROFIL PERUSAHAAN</button>
+</section>
+
+<footer>&copy; PT MAWAR ANDRIYANI INTERNASIONAL.</footer>
+</div>
+
+<!-- MODAL UKURAN DAN WARNA -->
+<div class="modal" id="sizeModal">
+<div class="modal-content">
+
+<h2 id="modalTitle">Pilih Ukuran</h2>
+<p id="modalProductName"></p>
+
+<div id="singleSizeBox">
+<div class="size-group">
+<h3>Pilih Ukuran</h3>
+<div id="singleSizes" class="size-options"></div>
+</div>
+</div>
+
+<div id="mukenaColorBox" style="display:none;text-align:left;margin:20px 0">
+<h3 style="color:#e9c477">Pilih Warna Mukena</h3>
+<div id="mukenaColors" class="color-options"></div>
+</div>
+
+<input type="number" id="sizeQuantity" min="1" value="1" placeholder="Jumlah">
+
+<div class="modal-actions">
+<button class="add-modal-btn" onclick="confirmAddToCart()">Tambahkan</button>
+<button class="close-modal-btn" onclick="closeSizeModal()">Batal</button>
+</div>
+
+</div>
+</div>
+
+<!-- KERANJANG -->
+<div class="cart-panel" id="cartPanel">
+<div class="cart-header">
+<h2>Keranjang Belanja</h2>
+<button class="close-cart" onclick="toggleCart()">Tutup</button>
+</div>
+<div id="cartItems"></div>
+<div class="cart-total">
+Total: <span id="cartTotal">Rp0</span>
+</div>
+<button class="checkout-btn" onclick="checkoutWhatsApp()">CHECKOUT VIA WHATSAPP</button>
+</div>
+
+<!-- KONFIRMASI HAPUS -->
+<div class="confirm-box" id="deleteModal">
+<div class="confirm-content">
+<h3>Hapus Produk?</h3>
+<p>Apakah Anda yakin ingin menghapus produk ini dari keranjang belanja?</p>
+<div class="confirm-actions">
+<button class="cancel-delete" onclick="cancelDelete()">Batal</button>
+<button class="confirm-delete" onclick="confirmDelete()">Hapus</button>
+</div>
+</div>
+</div>
+
+<!-- KONFIRMASI KEMBALI -->
+<div class="confirm-box" id="backConfirmModal">
+<div class="confirm-content">
+<h3>Konfirmasi Kembali</h3>
+<p id="backConfirmMessage">Apakah Anda yakin ingin kembali ke halaman sebelumnya?</p>
+<div class="confirm-actions">
+<button class="cancel-delete" onclick="cancelBack()">Tidak</button>
+<button class="confirm-delete" onclick="confirmBackAction()">Ya</button>
+</div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* DATA PRODUK */
+const products=[
+{
+id:1,
+name:"Gamis Batik Navy Wanita",
+category:"Wanita",
+price:285000,
+image:"gamis-batik-navy.jpg",
+sizes:["S","M","L","XL","XXL"]
+},
+{
+id:2,
+name:"Kemeja Batik Pria",
+category:"Pria",
+price:250000,
+image:"kemeja-batik-pria.jpg",
+sizes:["S","M","L","XL","XXL"]
+},
+{
+id:3,
+name:"Gamis Bunga Daun",
+category:"Wanita",
+price:285000,
+image:"gamis-bunga-daun.jpg",
+sizes:["S","M","L","XL","XXL"]
+},
+{
+id:4,
+name:"Gamis Sultan",
+category:"Wanita",
+price:325000,
+image:"gamis-sultan.jpg",
+sizes:["S","M","L","XL","XXL"]
+},
+{
+id:5,
+name:"Mukena",
+category:"Mukena",
+price:250000,
+image:"mukena.jpg",
+sizes:["Standar","Jumbo"],
+colors:[
+{name:"Sage",soldOut:false},
+{name:"Pink",soldOut:false},
+{name:"Lavender",soldOut:true},
+{name:"Cream Beige",soldOut:true},
+{name:"Navy",soldOut:true}
+]
+}
+];
+
+let activeCategory="Semua";
+let selectedProduct=null;
+let selectedSize="";
+let selectedColor="";
+let cart=[];
+let deleteIndex=null;
+let backTarget="";
+
+function rupiah(number){
+return "Rp"+number.toLocaleString("id-ID");
+}
+
+function toast(message){
+const el=document.getElementById("toast");
+el.textContent=message;
+el.style.display="block";
+setTimeout(()=>{el.style.display="none"},2500);
+}
+
+/* NAVIGASI */
+function hidePages(){
+["welcomePage","companyDashboard","ownerProfile","mainWebsite"].forEach(id=>{
+document.getElementById(id).style.display="none";
+});
+}
+
+function enterWebsite(){
+hidePages();
+document.getElementById("ownerProfile").style.display="block";
+window.scrollTo(0,0);
+}
+
+function enterOwnerProfile(){
+hidePages();
+document.getElementById("companyDashboard").style.display="block";
+window.scrollTo(0,0);
+}
+
+function enterMainWebsite(){
+hidePages();
+document.getElementById("mainWebsite").style.display="block";
+window.scrollTo(0,0);
+renderProducts();
+}
+
+/* KONFIRMASI KEMBALI */
+function confirmBack(target){
+backTarget=target;
+let message="";
+
+if(target==="welcomePage"){
+message="Apakah Anda yakin ingin kembali ke halaman selamat datang?";
+}
+else if(target==="ownerProfile"){
+message="Apakah Anda yakin ingin kembali ke profil pemilik perusahaan?";
+}
+else if(target==="companyDashboard"){
+message="Apakah Anda yakin ingin kembali ke profil perusahaan?";
+}
+
+document.getElementById("backConfirmMessage").textContent=message;
+document.getElementById("backConfirmModal").style.display="flex";
+}
+
+function cancelBack(){
+backTarget="";
+document.getElementById("backConfirmModal").style.display="none";
+}
+
+function confirmBackAction(){
+if(!backTarget)return;
+
+const target=backTarget;
+cancelBack();
+hidePages();
+
+document.getElementById(target).style.display="block";
+window.scrollTo(0,0);
+
+if(target==="mainWebsite"){
+renderProducts();
+}
+}
+
+/* PEMANGGILAN GAMBAR PRODUK - DIPERBAIKI */
+function renderProducts(){
+
+const grid=document.getElementById("productGrid");
+const keyword=document.getElementById("searchInput").value.toLowerCase().trim();
+
+const filtered=products.filter(p=>
+(activeCategory==="Semua"||p.category===activeCategory)&&
+p.name.toLowerCase().includes(keyword)
+);
+
+grid.innerHTML="";
+
+if(!filtered.length){
+grid.innerHTML="<p style='color:white'>Produk tidak ditemukan.</p>";
+return;
+}
+
+filtered.forEach(p=>{
+
+const card=document.createElement("div");
+card.className="product-card";
+
+const img=document.createElement("img");
+
+img.alt=p.name;
+img.loading="eager";
+img.decoding="async";
+
+/* PENGATURAN FOTO */
+img.style.width="100%";
+img.style.height="240px";
+img.style.objectFit="contain";
+img.style.objectPosition="center";
+img.style.display="block";
+img.style.background="#080808";
+
+/* JIKA FOTO GAGAL DIMUAT */
+img.onerror=function(){
+
+console.error("Gambar gagal dimuat:",p.image);
+
+const error=document.createElement("div");
+error.className="image-error";
+error.textContent="Foto tidak ditemukan: "+p.image;
+
+img.replaceWith(error);
+
+};
+
+/* JIKA FOTO BERHASIL DIMUAT */
+img.onload=function(){
+console.log("Foto berhasil dimuat:",p.image);
+};
+
+/* PEMANGGILAN GAMBAR: RESOLVE DARI LOKASI INDEX.HTML */
+const imageURL = new URL(p.image, document.baseURI).href;
+
+const info=document.createElement("div");
+info.className="product-info";
+
+info.innerHTML=`
+<h3>${p.name}</h3>
+<p class="product-category">${p.category}</p>
+<p class="product-price">${rupiah(p.price)}</p>
+<p class="product-detail">
+Produk fashion Zhetin dengan desain pilihan dan kualitas terbaik.
+</p>
+<button class="product-button">Pilih Produk</button>
+`;
+
+info.querySelector("button").onclick=()=>{
+selectProduct(p.id);
+};
+
+card.append(img,info);
+grid.appendChild(card);
+
+/* Atur src setelah elemen masuk ke halaman. */
+img.src=imageURL;
+
+});
+
+}
+
+function filterCategory(category,button){
+activeCategory=category;
+
+document.querySelectorAll(".category-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+renderProducts();
+}
+
+/* PILIH PRODUK */
+function selectProduct(id){
+
+selectedProduct=products.find(p=>p.id===id);
+selectedSize="";
+selectedColor="";
+
+document.getElementById("modalTitle").textContent=
+selectedProduct.category==="Mukena"?
+"Pilih Ukuran dan Warna Mukena":"Pilih Ukuran";
+
+document.getElementById("modalProductName").textContent=selectedProduct.name;
+document.getElementById("sizeQuantity").value=1;
+
+const sizeBox=document.getElementById("singleSizeBox");
+const colorBox=document.getElementById("mukenaColorBox");
+const sizes=document.getElementById("singleSizes");
+const colors=document.getElementById("mukenaColors");
+
+sizes.innerHTML="";
+colors.innerHTML="";
+
+sizeBox.style.display="block";
+colorBox.style.display=selectedProduct.category==="Mukena"?"block":"none";
+
+selectedProduct.sizes.forEach(size=>{
+
+const btn=document.createElement("button");
+btn.textContent=size;
+
+btn.onclick=()=>{
+selectedSize=size;
+sizes.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+};
+
+sizes.appendChild(btn);
+
+});
+
+if(selectedProduct.category==="Mukena"){
+
+selectedProduct.colors.forEach(color=>{
+
+const btn=document.createElement("button");
+btn.innerHTML=color.name+(color.soldOut?"<small>SOLD OUT</small>":"");
+btn.disabled=color.soldOut;
+
+if(!color.soldOut){
+btn.onclick=()=>{
+selectedColor=color.name;
+colors.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+};
+}
+
+colors.appendChild(btn);
+
+});
+
+}
+
+document.getElementById("sizeModal").style.display="flex";
+}
+
+function closeSizeModal(){
+document.getElementById("sizeModal").style.display="none";
+}
+
+/* TAMBAH KERANJANG */
+function confirmAddToCart(){
+
+if(!selectedProduct)return;
+
+if(!selectedSize){
+toast("Silakan pilih ukuran.");
+return;
+}
+
+if(selectedProduct.category==="Mukena"&&!selectedColor){
+toast("Silakan pilih warna mukena.");
+return;
+}
+
+const quantity=parseInt(document.getElementById("sizeQuantity").value);
+
+if(!quantity||quantity<1){
+toast("Jumlah produk tidak valid.");
+return;
+}
+
+const option=selectedProduct.category==="Mukena"?
+selectedSize+" - "+selectedColor:selectedSize;
+
+const existing=cart.find(item=>
+item.id===selectedProduct.id&&item.option===option
+);
+
+if(existing){
+existing.quantity+=quantity;
+}else{
+cart.push({
+id:selectedProduct.id,
+name:selectedProduct.name,
+price:selectedProduct.price,
+option,
+quantity
+});
+}
+
+closeSizeModal();
+renderCart();
+toast("Produk berhasil ditambahkan.");
+}
+
+/* KERANJANG */
+function toggleCart(){
+document.getElementById("cartPanel").classList.toggle("open");
+}
+
+function renderCart(){
+
+const container=document.getElementById("cartItems");
+container.innerHTML="";
+
+let total=0;
+let count=0;
+
+cart.forEach((item,index)=>{
+
+const subtotal=item.price*item.quantity;
+total+=subtotal;
+count+=item.quantity;
+
+const div=document.createElement("div");
+div.className="cart-item";
+
+div.innerHTML=`
+<h4>${item.name}</h4>
+<p>Pilihan: ${item.option}</p>
+<p>Harga: ${rupiah(item.price)}</p>
+<div class="quantity-control">
+<button onclick="changeQuantity(${index},-1)">-</button>
+<span>${item.quantity}</span>
+<button onclick="changeQuantity(${index},1)">+</button>
+<button class="remove-btn" onclick="askDelete(${index})">Hapus</button>
+</div>
+`;
+
+container.appendChild(div);
+
+});
+
+if(!cart.length){
+container.innerHTML="<p>Keranjang masih kosong.</p>";
+}
+
+document.getElementById("cartTotal").textContent=rupiah(total);
+document.getElementById("cartCount").textContent=count;
+}
+
+function changeQuantity(index,change){
+cart[index].quantity+=change;
+
+if(cart[index].quantity<1){
+askDelete(index);
+return;
+}
+
+renderCart();
+}
+
+/* HAPUS PRODUK */
+function askDelete(index){
+deleteIndex=index;
+document.getElementById("deleteModal").style.display="flex";
+}
+
+function cancelDelete(){
+deleteIndex=null;
+document.getElementById("deleteModal").style.display="none";
+}
+
+function confirmDelete(){
+if(deleteIndex!==null){
+cart.splice(deleteIndex,1);
+renderCart();
+}
+
+cancelDelete();
+toast("Produk dihapus dari keranjang.");
+}
+
+/* CHECKOUT WHATSAPP */
+function checkoutWhatsApp(){
+
+if(!cart.length){
+toast("Keranjang masih kosong.");
+return;
+}
+
+const phone="6285123884001";
+let message="Halo Zhetin, saya ingin memesan:\n\n";
+let total=0;
+
+cart.forEach(item=>{
+
+const subtotal=item.price*item.quantity;
+total+=subtotal;
+
+message+=`- ${item.name} (${item.option}) x${item.quantity} = ${rupiah(subtotal)}\n`;
+
+});
+
+message+=`\nTotal: ${rupiah(total)}\nMohon informasi pemesanan selanjutnya.`;
+
+window.open(
+"https://wa.me/"+phone+"?text="+encodeURIComponent(message),
+"_blank"
+);
+}
+
+/* INISIALISASI */
+renderCart();
+
+</script>
+
+</body>
+</html>
